@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    //MARK: - PROPERTIES
+    
+    //MARK: - BODY
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                VStack {
-                    Spacer()
-                    ButtonGridView(screenWidth: geometry.size.width)
-                } //: VSTACK
-            } //: ZSTACK
-        }
+        ZStack {
+            VStack {
+                Spacer()
+                CalcDisplayView()
+                ButtonGridView()
+            } //: VSTACK
+        } //: ZSTACK
     }
 }
 

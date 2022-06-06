@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct ButtonGridView: View {
-        
     //MARK: - PROPERTIES
-
-    var screenWidth: CGFloat
+    @State private var availableWidth: CGFloat = 0
     
     let columns: [GridItem] = [
         GridItem(.flexible()),
@@ -31,7 +29,7 @@ struct ButtonGridView: View {
                         ZStack {
                             Circle()
                                 .foregroundColor(Color(.systemBlue))
-                                .frame(width: screenWidth / 4 - 10, height: screenWidth / 4 - 10)
+                                .frame(width: availableWidth / 4 - 10, height: availableWidth / 4 - 10)
                             Text(buttonIcons[i])
                                 .foregroundColor(.white)
                         }
@@ -42,7 +40,7 @@ struct ButtonGridView: View {
                         ZStack {
                             Capsule()
                                 .foregroundColor(Color(.systemBlue))
-                                .frame(width: screenWidth / 2 - 15, height: screenWidth / 4 - 10)
+                                .frame(width: availableWidth / 2 - 15, height: availableWidth / 4 - 10)
                             Text(buttonIcons[i])
                                 .foregroundColor(.white)
                         }
@@ -54,20 +52,17 @@ struct ButtonGridView: View {
                         ZStack {
                             Circle()
                                 .foregroundColor(Color(.white).opacity(0))
-                                .frame(width: screenWidth / 4 - 10, height: screenWidth / 4 - 10)
+                                .frame(width: availableWidth / 4 - 10, height: availableWidth / 4 - 10)
                             Text(buttonIcons[i])
                                 .foregroundColor(.white)
                         }
                     }
                 }
             } //: VGRID
-            .padding()
+            .padding(.horizontal)
         } //: VSTACK
+        .readSize { size in
+          availableWidth = size.width
+        }
     }
 }
-//
-//struct ButtonGridView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ButtonGridView()
-//    }
-//}

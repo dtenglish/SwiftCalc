@@ -20,6 +20,8 @@ struct ButtonGridView: View {
         GridItem(.flexible())
     ]
     
+    let buttonIcons: [String] = ["AC", "+/-", "%", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "0", "", ".", "="]
+    
     //MARK: - BODY
     var body: some View {
         VStack {
@@ -30,6 +32,8 @@ struct ButtonGridView: View {
                             Circle()
                                 .foregroundColor(Color(.systemBlue))
                                 .frame(width: screenWidth / 4 - 10, height: screenWidth / 4 - 10)
+                            Text(buttonIcons[i])
+                                .foregroundColor(.white)
                         }
                         .onTapGesture {
 
@@ -39,6 +43,8 @@ struct ButtonGridView: View {
                             Capsule()
                                 .foregroundColor(Color(.systemBlue))
                                 .frame(width: screenWidth / 2 - 15, height: screenWidth / 4 - 10)
+                            Text(buttonIcons[i])
+                                .foregroundColor(.white)
                         }
                         .zIndex(1)
                         .onTapGesture {
@@ -49,6 +55,8 @@ struct ButtonGridView: View {
                             Circle()
                                 .foregroundColor(Color(.white).opacity(0))
                                 .frame(width: screenWidth / 4 - 10, height: screenWidth / 4 - 10)
+                            Text(buttonIcons[i])
+                                .foregroundColor(.white)
                         }
                     }
                 }

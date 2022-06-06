@@ -14,6 +14,7 @@
 		BD4D969F284E7716001498A6 /* SwiftCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D969E284E7716001498A6 /* SwiftCalcTests.swift */; };
 		BD4D96A9284E7716001498A6 /* SwiftCalcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96A8284E7716001498A6 /* SwiftCalcUITests.swift */; };
 		BD4D96AB284E7716001498A6 /* SwiftCalcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96AA284E7716001498A6 /* SwiftCalcUITestsLaunchTests.swift */; };
+		BD4D96BA284E7AE5001498A6 /* ButtonGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96B9284E7AE5001498A6 /* ButtonGridView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		BD4D96A4284E7716001498A6 /* SwiftCalcUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCalcUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4D96A8284E7716001498A6 /* SwiftCalcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCalcUITests.swift; sourceTree = "<group>"; };
 		BD4D96AA284E7716001498A6 /* SwiftCalcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCalcUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BD4D96B9284E7AE5001498A6 /* ButtonGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonGridView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,8 @@
 		BD4D968C284E7713001498A6 /* SwiftCalc */ = {
 			isa = PBXGroup;
 			children = (
+				BD4D96B7284E7A9F001498A6 /* Presentation Layer */,
 				BD4D968D284E7713001498A6 /* SwiftCalcApp.swift */,
-				BD4D968F284E7713001498A6 /* ContentView.swift */,
 				BD4D9691284E7715001498A6 /* Assets.xcassets */,
 				BD4D9693284E7715001498A6 /* Preview Content */,
 			);
@@ -125,6 +127,23 @@
 				BD4D96AA284E7716001498A6 /* SwiftCalcUITestsLaunchTests.swift */,
 			);
 			path = SwiftCalcUITests;
+			sourceTree = "<group>";
+		};
+		BD4D96B7284E7A9F001498A6 /* Presentation Layer */ = {
+			isa = PBXGroup;
+			children = (
+				BD4D96B8284E7AB1001498A6 /* Views */,
+			);
+			path = "Presentation Layer";
+			sourceTree = "<group>";
+		};
+		BD4D96B8284E7AB1001498A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD4D968F284E7713001498A6 /* ContentView.swift */,
+				BD4D96B9284E7AE5001498A6 /* ButtonGridView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD4D9690284E7713001498A6 /* ContentView.swift in Sources */,
+				BD4D96BA284E7AE5001498A6 /* ButtonGridView.swift in Sources */,
 				BD4D968E284E7713001498A6 /* SwiftCalcApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

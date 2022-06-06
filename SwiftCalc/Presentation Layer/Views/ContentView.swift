@@ -9,8 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        GeometryReader { geometry in
+            ZStack {
+                VStack {
+                    Spacer()
+                    ButtonGridView(screenWidth: geometry.size.width)
+                } //: VSTACK
+            } //: ZSTACK
+        }
     }
 }
 

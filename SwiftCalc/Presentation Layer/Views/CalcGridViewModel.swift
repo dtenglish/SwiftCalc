@@ -28,7 +28,7 @@ class CalcGridViewModel: ObservableObject {
         CalcGridButton(label: "3", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
         CalcGridButton(label: "+", backgroundColor: Color(.darkGray), textColor: Color(.white)),
         CalcGridButton(label: "0", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "", backgroundColor: Color(.white), textColor: Color(.white)),
+        CalcGridButton(label: "nil", backgroundColor: Color(.white).opacity(0), textColor: Color(.white).opacity(0)),
         CalcGridButton(label: ".", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
         CalcGridButton(label: "=", backgroundColor: Color(.darkGray), textColor: Color(.white)),
         

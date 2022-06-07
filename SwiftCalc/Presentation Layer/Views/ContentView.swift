@@ -16,7 +16,7 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 CalcDisplayView()
-                ButtonGridView()
+                CalcGridView()
             } //: VSTACK
         } //: ZSTACK
     }

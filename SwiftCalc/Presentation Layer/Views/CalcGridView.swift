@@ -1,5 +1,5 @@
 //
-//  ButtonGridView.swift
+//  CalcGridView.swift
 //  SwiftCalc
 //
 //  Created by Daniel Taylor English on 6/6/22.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct ButtonGridView: View {
+struct CalcGridView: View {
     //MARK: - PROPERTIES
+    @ObservedObject var viewModel = CalcGridViewModel()
     @State private var availableWidth: CGFloat = 0
     
     let columns: [GridItem] = [
@@ -18,8 +19,6 @@ struct ButtonGridView: View {
         GridItem(.flexible())
     ]
     
-    let buttonIcons: [String] = ["AC", "+/-", "%", "/", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "0", "", ".", "="]
-    
     //MARK: - BODY
     var body: some View {
         VStack {
@@ -27,33 +26,33 @@ struct ButtonGridView: View {
                 ForEach(0..<20) { i in
                     if i != 16 && i != 17 {
                         ZStack {
-                            Circle()
-                                .foregroundColor(Color(.systemBlue))
+                            Capsule()
+                                .foregroundColor(viewModel.buttons[i].backgroundColor)
                                 .frame(width: availableWidth / 4 - 10, height: availableWidth / 4 - 10)
-                            Text(buttonIcons[i])
-                                .foregroundColor(.white)
+                            Text(viewModel.buttons[i].label)
+                                .foregroundColor(viewModel.buttons[i].textColor)
                         }
                         .onTapGesture {
-
+                            viewModel.buttonPressed(viewModel.buttons[i].label)
                         }
                     } else if i == 16 {
                         ZStack {
                             Capsule()
-                                .foregroundColor(Color(.systemBlue))
+                                .foregroundColor(viewModel.buttons[i].backgroundColor)
                                 .frame(width: availableWidth / 2 - 15, height: availableWidth / 4 - 10)
-                            Text(buttonIcons[i])
-                                .foregroundColor(.white)
+                            Text(viewModel.buttons[i].label)
+                                .foregroundColor(viewModel.buttons[i].textColor)
                         }
                         .zIndex(1)
                         .onTapGesture {
-
+                            viewModel.buttonPressed(viewModel.buttons[i].label)
                         }
                     } else if i == 17 {
                         ZStack {
                             Circle()
                                 .foregroundColor(Color(.white).opacity(0))
                                 .frame(width: availableWidth / 4 - 10, height: availableWidth / 4 - 10)
-                            Text(buttonIcons[i])
+                            Text("")
                                 .foregroundColor(.white)
                         }
                     }

@@ -9,32 +9,51 @@ import SwiftUI
 
 class CalcGridViewModel: ObservableObject {
     //MARK: - PROPERTIES
+    private var themes = ColorThemes()
+    var buttons: [CalcGridButton]?
     
-    let buttons: [CalcGridButton] = [
-        CalcGridButton(label: "AC", backgroundColor: Color(.systemGray), textColor: Color(.white)),
-        CalcGridButton(label: "+/-", backgroundColor: Color(.systemGray), textColor: Color(.white)),
-        CalcGridButton(label: "%", backgroundColor: Color(.systemGray), textColor: Color(.white)),
-        CalcGridButton(label: "/", backgroundColor: Color(.darkGray), textColor: Color(.white)),
-        CalcGridButton(label: "7", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "8", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "9", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "X", backgroundColor: Color(.darkGray), textColor: Color(.white)),
-        CalcGridButton(label: "4", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "5", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "6", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "-", backgroundColor: Color(.darkGray), textColor: Color(.white)),
-        CalcGridButton(label: "1", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "2", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "3", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "+", backgroundColor: Color(.darkGray), textColor: Color(.white)),
-        CalcGridButton(label: "0", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "nil", backgroundColor: Color(.white).opacity(0), textColor: Color(.white).opacity(0)),
-        CalcGridButton(label: ".", backgroundColor: Color(.systemBlue), textColor: Color(.white)),
-        CalcGridButton(label: "=", backgroundColor: Color(.darkGray), textColor: Color(.white)),
-        
+    typealias input = (label: String, type: String)
+    
+    let inputs = [
+        (label: "AC", type: "extraFunction"),
+        (label: "+/-", type: "extraFunction"),
+        (label: "%", type: "extraFunction"),
+        (label: "/", type: "operation"),
+        (label: "7", type: "pinpad"),
+        (label: "8", type: "pinpad"),
+        (label: "9", type: "pinpad"),
+        (label: "X", type: "operation"),
+        (label: "4", type: "pinpad"),
+        (label: "5", type: "pinpad"),
+        (label: "6", type: "pinpad"),
+        (label: "-", type: "operation"),
+        (label: "1", type: "pinpad"),
+        (label: "2", type: "pinpad"),
+        (label: "3", type: "pinpad"),
+        (label: "+", type: "operation"),
+        (label: "0", type: "pinpad"),
+        (label: "nil", type: "nil"),
+        (label: ".", type: "pinpad"),
+        (label: "=", type: "operation"),
     ]
     
+    init() {
+        buttons = generateButtons(inputs: inputs, theme: themes.selectedTheme)
+    }
+    
     //MARK: - FUNCTIONS
+    
+    func generateButtons(inputs: [input], theme: CalculatorTheme) -> [CalcGridButton] {
+        var buttons: [CalcGridButton] = []
+        
+        for input in inputs {
+            buttons.append(
+                CalcGridButton(label: input.label, type: input.type, theme: theme)
+            )
+        }
+        
+        return buttons
+    }
     
     func buttonPressed(_ label: String) {
         print(label)

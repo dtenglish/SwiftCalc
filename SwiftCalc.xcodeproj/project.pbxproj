@@ -111,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				BD4D96B7284E7A9F001498A6 /* Presentation Layer */,
+				BD75AC7B2851181000616A97 /* Business Logic Layer */,
 				BD75AC70284FD2D500616A97 /* Data Layer */,
 				BD4D968D284E7713001498A6 /* SwiftCalcApp.swift */,
 				BD4D9691284E7715001498A6 /* Assets.xcassets */,
@@ -189,6 +190,13 @@
 				BD75AC78284FDF8800616A97 /* CalcGridButton.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		BD75AC7B2851181000616A97 /* Business Logic Layer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business Logic Layer";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

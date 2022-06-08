@@ -12,29 +12,29 @@ class CalcGridViewModel: ObservableObject {
     private var themes = ColorThemes()
     var buttons: [CalcGridButton]?
     
-    typealias input = (label: String, type: String)
+    typealias input = (label: String, type: CalcGridButton.ButtonType)
     
     let inputs = [
-        (label: "AC", type: "extraFunction"),
-        (label: "+/-", type: "extraFunction"),
-        (label: "%", type: "extraFunction"),
-        (label: "/", type: "operation"),
-        (label: "7", type: "pinpad"),
-        (label: "8", type: "pinpad"),
-        (label: "9", type: "pinpad"),
-        (label: "X", type: "operation"),
-        (label: "4", type: "pinpad"),
-        (label: "5", type: "pinpad"),
-        (label: "6", type: "pinpad"),
-        (label: "-", type: "operation"),
-        (label: "1", type: "pinpad"),
-        (label: "2", type: "pinpad"),
-        (label: "3", type: "pinpad"),
-        (label: "+", type: "operation"),
-        (label: "0", type: "pinpad"),
-        (label: "nil", type: "nil"),
-        (label: ".", type: "pinpad"),
-        (label: "=", type: "operation"),
+        (label: "AC", type: CalcGridButton.ButtonType.extraFunction),
+        (label: "+/-", type: CalcGridButton.ButtonType.extraFunction),
+        (label: "%", type: CalcGridButton.ButtonType.extraFunction),
+        (label: "/", type: CalcGridButton.ButtonType.operation),
+        (label: "7", type: CalcGridButton.ButtonType.pinpad),
+        (label: "8", type: CalcGridButton.ButtonType.pinpad),
+        (label: "9", type: CalcGridButton.ButtonType.pinpad),
+        (label: "X", type: CalcGridButton.ButtonType.operation),
+        (label: "4", type: CalcGridButton.ButtonType.pinpad),
+        (label: "5", type: CalcGridButton.ButtonType.pinpad),
+        (label: "6", type: CalcGridButton.ButtonType.pinpad),
+        (label: "-", type: CalcGridButton.ButtonType.operation),
+        (label: "1", type: CalcGridButton.ButtonType.pinpad),
+        (label: "2", type: CalcGridButton.ButtonType.pinpad),
+        (label: "3", type: CalcGridButton.ButtonType.pinpad),
+        (label: "+", type: CalcGridButton.ButtonType.operation),
+        (label: "0", type: CalcGridButton.ButtonType.pinpad),
+        (label: "nil", type: CalcGridButton.ButtonType.blank),
+        (label: ".", type: CalcGridButton.ButtonType.pinpad),
+        (label: "=", type: CalcGridButton.ButtonType.operation),
     ]
     
     init() {

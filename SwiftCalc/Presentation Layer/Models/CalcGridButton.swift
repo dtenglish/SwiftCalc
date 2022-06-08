@@ -8,31 +8,33 @@
 import SwiftUI
 
 struct CalcGridButton {
+    enum ButtonType { case extraFunction, operation, pinpad, blank }
+    
     let label: String
-    let type: String
+    var type: ButtonType
     var theme: CalculatorTheme
     
     var backgroundColor: Color {
         switch type {
-        case "extraFunction":
+        case .extraFunction:
             return theme.extraFunctionColor
-        case "operation":
+        case .operation:
             return theme.operationColor
-        case "pinpad":
+        case .pinpad:
             return theme.pinpadColor
-        default:
+        case .blank:
             return Color(.white).opacity(0)
         }
     }
     var textColor: Color {
         switch type {
-        case "extraFunction":
+        case .extraFunction:
             return theme.extraFunctionTextColor
-        case "operation":
+        case .operation:
             return theme.operationTextColor
-        case "pinpad":
+        case .pinpad:
             return theme.pinpadTextColor
-        default:
+        case .blank:
             return Color(.white).opacity(0)
         }
     }

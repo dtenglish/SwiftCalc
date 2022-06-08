@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BD4D968E284E7713001498A6 /* SwiftCalcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D968D284E7713001498A6 /* SwiftCalcApp.swift */; };
-		BD4D9690284E7713001498A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D968F284E7713001498A6 /* ContentView.swift */; };
+		BD4D9690284E7713001498A6 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D968F284E7713001498A6 /* CalculatorView.swift */; };
 		BD4D9692284E7715001498A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD4D9691284E7715001498A6 /* Assets.xcassets */; };
 		BD4D9695284E7715001498A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD4D9694284E7715001498A6 /* Preview Assets.xcassets */; };
 		BD4D969F284E7716001498A6 /* MathEquationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D969E284E7716001498A6 /* MathEquationTests.swift */; };
@@ -23,6 +23,8 @@
 		BD75AC77284FD9F900616A97 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75AC76284FD9F900616A97 /* ColorThemes.swift */; };
 		BD75AC79284FDF8800616A97 /* CalcGridButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75AC78284FDF8800616A97 /* CalcGridButton.swift */; };
 		BD75AC7D28511D5300616A97 /* MathEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75AC7C28511D5300616A97 /* MathEquation.swift */; };
+		BD75AC7F28512BE800616A97 /* CalculatorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75AC7E28512BE800616A97 /* CalculatorEngine.swift */; };
+		BD75AC81285131A300616A97 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75AC80285131A300616A97 /* CalculatorViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +47,7 @@
 /* Begin PBXFileReference section */
 		BD4D968A284E7713001498A6 /* SwiftCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4D968D284E7713001498A6 /* SwiftCalcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCalcApp.swift; sourceTree = "<group>"; };
-		BD4D968F284E7713001498A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD4D968F284E7713001498A6 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
 		BD4D9691284E7715001498A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD4D9694284E7715001498A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD4D969A284E7716001498A6 /* SwiftCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,8 @@
 		BD75AC76284FD9F900616A97 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 		BD75AC78284FDF8800616A97 /* CalcGridButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcGridButton.swift; sourceTree = "<group>"; };
 		BD75AC7C28511D5300616A97 /* MathEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathEquation.swift; sourceTree = "<group>"; };
+		BD75AC7E28512BE800616A97 /* CalculatorEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorEngine.swift; sourceTree = "<group>"; };
+		BD75AC80285131A300616A97 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,11 +164,12 @@
 		BD4D96B8284E7AB1001498A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BD4D968F284E7713001498A6 /* ContentView.swift */,
+				BD4D968F284E7713001498A6 /* CalculatorView.swift */,
+				BD75AC80285131A300616A97 /* CalculatorViewModel.swift */,
 				BD4D96B9284E7AE5001498A6 /* CalcGridView.swift */,
-				BD4D96BB284E8640001498A6 /* CalcDisplayView.swift */,
 				BD4D96C4284EA346001498A6 /* CalcGridViewModel.swift */,
 				BD4D96C6284EA409001498A6 /* CalcGridButtonView.swift */,
+				BD4D96BB284E8640001498A6 /* CalcDisplayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				BD75AC7C28511D5300616A97 /* MathEquation.swift */,
+				BD75AC7E28512BE800616A97 /* CalculatorEngine.swift */,
 			);
 			path = "Business Logic Layer";
 			sourceTree = "<group>";
@@ -335,8 +341,10 @@
 				BD75AC7D28511D5300616A97 /* MathEquation.swift in Sources */,
 				BD75AC72284FD31200616A97 /* CalculatorTheme.swift in Sources */,
 				BD4D96BC284E8640001498A6 /* CalcDisplayView.swift in Sources */,
+				BD75AC81285131A300616A97 /* CalculatorViewModel.swift in Sources */,
 				BD75AC77284FD9F900616A97 /* ColorThemes.swift in Sources */,
-				BD4D9690284E7713001498A6 /* ContentView.swift in Sources */,
+				BD4D9690284E7713001498A6 /* CalculatorView.swift in Sources */,
+				BD75AC7F28512BE800616A97 /* CalculatorEngine.swift in Sources */,
 				BD4D96BA284E7AE5001498A6 /* CalcGridView.swift in Sources */,
 				BD4D968E284E7713001498A6 /* SwiftCalcApp.swift in Sources */,
 				BD75AC79284FDF8800616A97 /* CalcGridButton.swift in Sources */,

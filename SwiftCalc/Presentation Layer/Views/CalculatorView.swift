@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CalculatorView.swift
 //  SwiftCalc
 //
 //  Created by Daniel Taylor English on 6/6/22.
@@ -7,23 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CalculatorView: View {
     //MARK: - PROPERTIES
+    @StateObject var viewModel = CalculatorViewModel()
     
     //MARK: - BODY
     var body: some View {
         ZStack {
             VStack {
                 Spacer()
-                CalcDisplayView()
+                CalcDisplayView(calcDisplayValue: $viewModel.displayValue)
                 CalcGridView()
             } //: VSTACK
         } //: ZSTACK
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CalculatorView()
     }
 }

@@ -9,14 +9,14 @@ import SwiftUI
 
 struct CalcDisplayView: View {
     //MARK: - PROPERTIES
-    @State var calcDisplayText: String = "0"
+    @Binding var calcDisplayValue: Decimal
     
     //MARK: - BODY
     var body: some View {
         VStack{
             HStack {
                 Spacer()
-                Text(calcDisplayText)
+                Text(calcDisplayValue.formatted())
                     .padding()
                     .font(.system(size: 80))
             } //: HSTACK

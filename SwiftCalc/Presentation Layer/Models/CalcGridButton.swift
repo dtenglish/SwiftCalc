@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CalcGridButton {
+    
     enum ButtonType { case extraFunction, operation, pinpad, blank }
     
     let label: String
@@ -26,6 +27,7 @@ struct CalcGridButton {
             return Color(.white).opacity(0)
         }
     }
+    
     var textColor: Color {
         switch type {
         case .extraFunction:

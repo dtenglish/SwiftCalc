@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct CalcGridButtonView: View {
+    //MARK: - PROPERTIES
     let button: CalcGridButton
     let width: CGFloat
     let height: CGFloat
     let action: () -> Void
     
+    //MARK: - BODY
     var body: some View {
         ZStack {
             Capsule()

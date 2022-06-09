@@ -17,22 +17,31 @@ final class CalculatorViewModel: ObservableObject {
     //MARK: - FUNCTIONS
     
     func buttonPressed(_ button: CalcGridButton) {
+        
         if button.type == CalcGridButton.ButtonType.pinpad {
+            
             if let input = Decimal(string: button.label) {
                 calculatorEngine.numberPressed(input)
-                displayValue = calculatorEngine.currentValue
             } else if button.label == "." {
                 calculatorEngine.decimalPressed()
             }
+            
         } else if button.type == CalcGridButton.ButtonType.operation {
-            switch button.label {
-            case "+": calculatorEngine.addPressed()
-            case "-": calculatorEngine.subtractPressed()
-            case "X": calculatorEngine.multiplyPressed()
-            default: return
-            }
+            
+            calculatorEngine.operationPressed(input: button.label)
+            
         } else if button.type == CalcGridButton.ButtonType.extraFunction {
             
+            if button.label == "AC" {
+                calculatorEngine.clearPressed()
+            } else if button.label == "+/-" {
+                calculatorEngine.negatePressed()
+            } else if button.label == "%" {
+                calculatorEngine.percentagePressed()
+            }
         }
+        
+        displayValue = calculatorEngine.displayValue
+        
     }
 }

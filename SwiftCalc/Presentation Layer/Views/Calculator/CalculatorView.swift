@@ -17,7 +17,7 @@ struct CalculatorView: View {
             VStack {
                 Spacer()
                 CalcDisplayView(calcDisplayValue: $viewModel.displayValue)
-                CalcGridView()
+                CalcGridView(viewModel: viewModel)
             } //: VSTACK
         } //: ZSTACK
     }

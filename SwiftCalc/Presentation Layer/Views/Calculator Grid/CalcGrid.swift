@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class CalcGridViewModel: ObservableObject {
+struct CalcGrid {
     //MARK: - PROPERTIES
     private var themes = ColorThemes()
     var buttons: [CalcGridButton]?
@@ -53,9 +53,5 @@ class CalcGridViewModel: ObservableObject {
         }
         
         return buttons
-    }
-    
-    func buttonPressed(_ label: String) {
-        print(label)
     }
 }

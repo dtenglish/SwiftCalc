@@ -17,7 +17,7 @@
 		BD4D96BA284E7AE5001498A6 /* CalcGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96B9284E7AE5001498A6 /* CalcGridView.swift */; };
 		BD4D96BC284E8640001498A6 /* CalcDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96BB284E8640001498A6 /* CalcDisplayView.swift */; };
 		BD4D96BF284E8BFD001498A6 /* ReadSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96BE284E8BFD001498A6 /* ReadSize.swift */; };
-		BD4D96C5284EA346001498A6 /* CalcGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96C4284EA346001498A6 /* CalcGridViewModel.swift */; };
+		BD4D96C5284EA346001498A6 /* CalcGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96C4284EA346001498A6 /* CalcGrid.swift */; };
 		BD4D96C7284EA409001498A6 /* CalcGridButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4D96C6284EA409001498A6 /* CalcGridButtonView.swift */; };
 		BD75AC72284FD31200616A97 /* CalculatorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75AC71284FD31200616A97 /* CalculatorTheme.swift */; };
 		BD75AC77284FD9F900616A97 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD75AC76284FD9F900616A97 /* ColorThemes.swift */; };
@@ -58,7 +58,7 @@
 		BD4D96B9284E7AE5001498A6 /* CalcGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcGridView.swift; sourceTree = "<group>"; };
 		BD4D96BB284E8640001498A6 /* CalcDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcDisplayView.swift; sourceTree = "<group>"; };
 		BD4D96BE284E8BFD001498A6 /* ReadSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSize.swift; sourceTree = "<group>"; };
-		BD4D96C4284EA346001498A6 /* CalcGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcGridViewModel.swift; sourceTree = "<group>"; };
+		BD4D96C4284EA346001498A6 /* CalcGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcGrid.swift; sourceTree = "<group>"; };
 		BD4D96C6284EA409001498A6 /* CalcGridButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcGridButtonView.swift; sourceTree = "<group>"; };
 		BD75AC71284FD31200616A97 /* CalculatorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTheme.swift; sourceTree = "<group>"; };
 		BD75AC76284FD9F900616A97 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
@@ -156,7 +156,6 @@
 			children = (
 				BD4D96BD284E8BEA001498A6 /* Extensions */,
 				BD4D96B8284E7AB1001498A6 /* Views */,
-				BD75AC7A284FDF8F00616A97 /* Models */,
 			);
 			path = "Presentation Layer";
 			sourceTree = "<group>";
@@ -164,12 +163,8 @@
 		BD4D96B8284E7AB1001498A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BD4D968F284E7713001498A6 /* CalculatorView.swift */,
-				BD75AC80285131A300616A97 /* CalculatorViewModel.swift */,
-				BD4D96B9284E7AE5001498A6 /* CalcGridView.swift */,
-				BD4D96C4284EA346001498A6 /* CalcGridViewModel.swift */,
-				BD4D96C6284EA409001498A6 /* CalcGridButtonView.swift */,
-				BD4D96BB284E8640001498A6 /* CalcDisplayView.swift */,
+				BD7ACE772851442700DA9C38 /* Calculator */,
+				BD7ACE782851443800DA9C38 /* Calculator Grid */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,14 +186,6 @@
 			path = "Data Layer";
 			sourceTree = "<group>";
 		};
-		BD75AC7A284FDF8F00616A97 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				BD75AC78284FDF8800616A97 /* CalcGridButton.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		BD75AC7B2851181000616A97 /* Business Logic Layer */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +193,27 @@
 				BD75AC7E28512BE800616A97 /* CalculatorEngine.swift */,
 			);
 			path = "Business Logic Layer";
+			sourceTree = "<group>";
+		};
+		BD7ACE772851442700DA9C38 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				BD4D968F284E7713001498A6 /* CalculatorView.swift */,
+				BD4D96BB284E8640001498A6 /* CalcDisplayView.swift */,
+				BD75AC80285131A300616A97 /* CalculatorViewModel.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		BD7ACE782851443800DA9C38 /* Calculator Grid */ = {
+			isa = PBXGroup;
+			children = (
+				BD4D96B9284E7AE5001498A6 /* CalcGridView.swift */,
+				BD4D96C4284EA346001498A6 /* CalcGrid.swift */,
+				BD75AC78284FDF8800616A97 /* CalcGridButton.swift */,
+				BD4D96C6284EA409001498A6 /* CalcGridButtonView.swift */,
+			);
+			path = "Calculator Grid";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,7 +358,7 @@
 				BD75AC79284FDF8800616A97 /* CalcGridButton.swift in Sources */,
 				BD4D96BF284E8BFD001498A6 /* ReadSize.swift in Sources */,
 				BD4D96C7284EA409001498A6 /* CalcGridButtonView.swift in Sources */,
-				BD4D96C5284EA346001498A6 /* CalcGridViewModel.swift in Sources */,
+				BD4D96C5284EA346001498A6 /* CalcGrid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

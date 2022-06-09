@@ -11,28 +11,28 @@ struct MathEquation {
     //MARK: - PROPERTIES
     enum OperationType { case add, subtract, multiply, divide }
     
-    var leftSide: Decimal
-    var rightSide: Decimal?
+    var lhs: Decimal
+    var rhs: Decimal?
     var operation: OperationType?
     var result: Decimal?
     
     //MARK: - FUNCTIONS
     mutating func execute() {
         guard
-            let rightSide = self.rightSide,
+            let rhs = self.rhs,
             let operation = self.operation else {
                 return
         }
         
         switch operation {
         case .add:
-            result = leftSide + rightSide
+            result = lhs + rhs
         case .subtract:
-            result = leftSide - rightSide
+            result = lhs - rhs
         case .multiply:
-            result = leftSide * rightSide
+            result = lhs * rhs
         case .divide:
-            result = leftSide / rightSide
+            result = lhs / rhs
         }
     }
 }

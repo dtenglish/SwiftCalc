@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CalcGridView: View {
     //MARK: - PROPERTIES
-    @ObservedObject var viewModel = CalcGridViewModel()
+    @ObservedObject var viewModel: CalculatorViewModel
+    @State var grid = CalcGrid()
     @State private var availableWidth: CGFloat = 320
     
     let columns: [GridItem] = [
@@ -22,14 +23,14 @@ struct CalcGridView: View {
     //MARK: - BODY
     var body: some View {
         VStack {
-            if let buttons = viewModel.buttons {
+            if let buttons = grid.buttons {
                 LazyVGrid(columns: columns, alignment: .leading, spacing: 5) {
                     ForEach(0..<20) { i in
                             CalcGridButtonView(
                                 button: buttons[i],
                                 width: i == 16 ? (availableWidth / 2 - 15) : (availableWidth / 4 - 10),
                                 height: (availableWidth / 4 - 10),
-                                action: {viewModel.buttonPressed(buttons[i].label)}
+                                action: {viewModel.buttonPressed(buttons[i])}
                             )
                     } //: VGRID
                 }

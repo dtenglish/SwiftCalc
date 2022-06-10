@@ -20,7 +20,7 @@ struct CalcGridButtonView: View {
             Capsule()
                 .foregroundColor(button.backgroundColor)
                 .frame(width: width, height: height)
-            Text(button.label)
+            Text(button.label.rawValue)
                 .foregroundColor(button.textColor)
         }
         .onTapGesture {

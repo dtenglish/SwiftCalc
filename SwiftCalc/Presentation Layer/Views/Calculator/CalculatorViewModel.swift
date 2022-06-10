@@ -20,9 +20,9 @@ final class CalculatorViewModel: ObservableObject {
         
         if button.type == CalcGridButton.ButtonType.pinpad {
             
-            if let input = Decimal(string: button.label) {
+            if let input = Decimal(string: button.label.rawValue) {
                 calculatorEngine.numberPressed(input)
-            } else if button.label == "." {
+            } else if button.label == CalcGridButton.ButtonLabel.decimal {
                 calculatorEngine.decimalPressed()
             }
             
@@ -32,11 +32,11 @@ final class CalculatorViewModel: ObservableObject {
             
         } else if button.type == CalcGridButton.ButtonType.extraFunction {
             
-            if button.label == "AC" {
+            if button.label == CalcGridButton.ButtonLabel.clear {
                 calculatorEngine.clearPressed()
-            } else if button.label == "+/-" {
+            } else if button.label == CalcGridButton.ButtonLabel.negate {
                 calculatorEngine.negatePressed()
-            } else if button.label == "%" {
+            } else if button.label == CalcGridButton.ButtonLabel.percentage {
                 calculatorEngine.percentagePressed()
             }
         }

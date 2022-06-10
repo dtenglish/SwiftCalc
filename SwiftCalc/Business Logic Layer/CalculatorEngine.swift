@@ -39,7 +39,7 @@ struct CalculatorEngine {
     
     //MARK: - OPERATIONS
     
-    mutating func operationPressed(input: String) {
+    mutating func operationPressed(input: CalcGridButton.ButtonLabel) {
         
         switch operandSide {
         case .leftHandSide:
@@ -52,11 +52,11 @@ struct CalculatorEngine {
         isComplete = false
         
         switch input {
-        case "+": mathEquation.operation = .add
-        case "-": mathEquation.operation = .subtract
-        case "X": mathEquation.operation = .multiply
-        case "/": mathEquation.operation = .divide
-        case "=":
+        case CalcGridButton.ButtonLabel.add: mathEquation.operation = .add
+        case CalcGridButton.ButtonLabel.subtract: mathEquation.operation = .subtract
+        case CalcGridButton.ButtonLabel.multiply: mathEquation.operation = .multiply
+        case CalcGridButton.ButtonLabel.divide: mathEquation.operation = .divide
+        case CalcGridButton.ButtonLabel.equals:
             mathEquation.execute()
             isComplete = true
         default:

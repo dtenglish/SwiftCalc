@@ -10,8 +10,11 @@ import SwiftUI
 struct CalcGridButton {
     
     enum ButtonType { case extraFunction, operation, pinpad, blank }
+    enum ButtonLabel: String {
+        case clear = "AC", negate = "+/-", percentage = "%", divide = "/", seven = "7", eight = "8", nine = "9", multiply = "X", four = "4", five = "5", six = "6", subtract = "-", one = "1", two = "2", three = "3", add = "+", zero = "0", blank = "nil", decimal = ".", equals = "="
+    }
     
-    let label: String
+    let label: ButtonLabel
     var type: ButtonType
     var theme: CalculatorTheme
     

@@ -14,6 +14,7 @@ struct CalculatorEngine {
     
     private var mathEquation = MathEquation(lhs: 0)
     private var operandSide = OperandSide.leftHandSide
+    private var activeOperation = false
     private var startNewInput = true
     private var isComplete = false
     private var decimalButtonActive = false
@@ -23,6 +24,7 @@ struct CalculatorEngine {
     var displayValue: Decimal = 0
     
     //MARK: - EXTRA FUNCTIONS
+    
     mutating func clearPressed() {
         resetCalc()
     }
@@ -31,12 +33,18 @@ struct CalculatorEngine {
         displayValue.negate()
         currentValue = displayValue
         startNewInput = true
+        if operandSide == .rightHandSide {
+            activeOperation = true
+        }
     }
     
     mutating func percentagePressed() {
         displayValue = displayValue * 0.01
         currentValue = displayValue
         startNewInput = true
+        if operandSide == .rightHandSide {
+            activeOperation = true
+        }
     }
     
     //MARK: - OPERATIONS
@@ -47,14 +55,13 @@ struct CalculatorEngine {
         case .leftHandSide:
             mathEquation.lhs = currentValue
             operandSide = .rightHandSide
+            activeOperation = true
         case .rightHandSide:
             mathEquation.rhs = currentValue
-        }
-        
-        isComplete = false
-        
-        if operandSide == .rightHandSide && startNewInput == false {
-            mathEquation.execute()
+            if activeOperation {
+                mathEquation.execute()
+                activeOperation = false
+            }
         }
         
         switch input {
@@ -64,6 +71,7 @@ struct CalculatorEngine {
         case CalcGridButton.ButtonLabel.divide: mathEquation.operation = .divide
         case CalcGridButton.ButtonLabel.equals:
             mathEquation.execute()
+            activeOperation = false
             isComplete = true
         default:
             break
@@ -91,6 +99,7 @@ struct CalculatorEngine {
             if startNewInput {
                 currentValue = 0
                 decimalButtonActive = false
+                decimalMultiplier = 1
                 startNewInput = false
             }
             
@@ -100,7 +109,6 @@ struct CalculatorEngine {
             } else {
                 currentValue = (currentValue * 10) + number
             }
-            
             displayValue = currentValue
         }
         
@@ -111,11 +119,13 @@ struct CalculatorEngine {
     }
     
     //MARK: - UTILITY FUNCTIONS
+    
     mutating func resetCalc() {
         mathEquation = MathEquation(lhs: 0)
         currentValue = 0
         displayValue = 0
         operandSide = .leftHandSide
+        activeOperation = false
         startNewInput = true
         isComplete = false
         decimalButtonActive = false

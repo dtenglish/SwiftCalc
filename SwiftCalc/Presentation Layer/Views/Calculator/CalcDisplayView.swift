@@ -16,7 +16,7 @@ struct CalcDisplayView: View {
         VStack{
             HStack {
                 Spacer()
-                Text(calcDisplayValue.formatted())
+                Text(String(describing: calcDisplayValue))
                     .padding()
                     .font(.system(size: 80))
             } //: HSTACK
@@ -26,3 +26,12 @@ struct CalcDisplayView: View {
     }
 }
 
+//struct CalcDisplayOutput {
+//    let output: Decimal
+//}
+//
+//extension CalcDisplayOutput: CustomStringConvertible {
+//    var description: String {
+//        return String(output)
+//    }
+//}

@@ -10,9 +10,12 @@ import SwiftUI
 final class CalculatorViewModel: ObservableObject {
     //MARK: - PROPERTIES
     
-    var calculatorEngine = CalculatorEngine()
-    @Published var displayValue: Decimal = 0
+    @Published var calculatorEngine = CalculatorEngine()
+    @Published var displayValueString: String = ""
     
+    init() {
+        formatDisplayValue()
+    }
     
     //MARK: - FUNCTIONS
     
@@ -40,7 +43,19 @@ final class CalculatorViewModel: ObservableObject {
             }
         }
         
-        displayValue = calculatorEngine.displayValue
+        formatDisplayValue()
+    }
+    
+    func formatDisplayValue() {
+        let decimalSpaces = String(describing: calculatorEngine.decimalSpaces)
+        let displayValue = Double(truncating: calculatorEngine.displayValue as NSNumber)
+        print(decimalSpaces)
+        print(displayValue)
         
+        displayValueString = String(format: "%.0\(decimalSpaces)f", displayValue)
+        
+        if calculatorEngine.decimalButtonActive && calculatorEngine.decimalSpaces == 0 {
+            displayValueString.append(".")
+        }
     }
 }

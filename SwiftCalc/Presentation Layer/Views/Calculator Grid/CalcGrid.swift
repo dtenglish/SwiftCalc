@@ -34,7 +34,7 @@ struct CalcGrid {
         (label: CalcGridButton.ButtonLabel.zero, type: CalcGridButton.ButtonType.pinpad),
         (label: CalcGridButton.ButtonLabel.blank, type: CalcGridButton.ButtonType.blank),
         (label: CalcGridButton.ButtonLabel.decimal, type: CalcGridButton.ButtonType.pinpad),
-         (label: CalcGridButton.ButtonLabel.equals, type: CalcGridButton.ButtonType.operation),
+        (label: CalcGridButton.ButtonLabel.equals, type: CalcGridButton.ButtonType.operation),
     ]
     
     init() {

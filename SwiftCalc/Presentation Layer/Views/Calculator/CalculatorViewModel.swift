@@ -19,10 +19,9 @@ final class CalculatorViewModel: ObservableObject {
     func buttonPressed(_ button: CalcGridButton) {
         
         if button.type == CalcGridButton.ButtonType.pinpad {
-            
-            if let input = Decimal(string: button.label.rawValue) {
-                calculatorEngine.numberPressed(input)
-            } else if button.label == CalcGridButton.ButtonLabel.decimal {
+            if button.label != CalcGridButton.ButtonLabel.decimal {
+                calculatorEngine.numberPressed(input: button.label)
+            } else  {
                 calculatorEngine.decimalPressed()
             }
             

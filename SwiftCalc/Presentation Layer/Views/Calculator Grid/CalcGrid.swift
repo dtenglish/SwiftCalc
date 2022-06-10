@@ -14,27 +14,6 @@ struct CalcGrid {
     
     typealias input = (label: CalcGridButton.ButtonLabel, type: CalcGridButton.ButtonType)
     
-    //    (label: "AC", type: CalcGridButton.ButtonType.extraFunction),
-    //    (label: "+/-", type: CalcGridButton.ButtonType.extraFunction),
-    //    (label: "%", type: CalcGridButton.ButtonType.extraFunction),
-    //    (label: "/", type: CalcGridButton.ButtonType.operation),
-    //    (label: "7", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "8", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "9", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "X", type: CalcGridButton.ButtonType.operation),
-    //    (label: "4", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "5", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "6", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "-", type: CalcGridButton.ButtonType.operation),
-    //    (label: "1", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "2", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "3", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "+", type: CalcGridButton.ButtonType.operation),
-    //    (label: "0", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "nil", type: CalcGridButton.ButtonType.blank),
-    //    (label: ".", type: CalcGridButton.ButtonType.pinpad),
-    //    (label: "=", type: CalcGridButton.ButtonType.operation),
-    
     let inputs = [
         (label: CalcGridButton.ButtonLabel.clear, type: CalcGridButton.ButtonType.extraFunction),
         (label: CalcGridButton.ButtonLabel.negate, type: CalcGridButton.ButtonType.extraFunction),

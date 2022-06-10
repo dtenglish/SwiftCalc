@@ -16,6 +16,8 @@ struct CalculatorEngine {
     private var operandSide = OperandSide.leftHandSide
     private var startNewInput = true
     private var isComplete = false
+    private var decimalButtonActive = false
+    private var decimalMultiplier: Decimal = 1
     
     var currentValue: Decimal = 0
     var displayValue: Decimal = 0
@@ -78,24 +80,34 @@ struct CalculatorEngine {
     
     //MARK: - PINPAD
     
-    mutating func numberPressed(_ input: Decimal) {
+    mutating func numberPressed(input: CalcGridButton.ButtonLabel) {
         
-        if isComplete {
-            resetCalc()
+        if let number = Decimal(string: input.rawValue) {
+        
+            if isComplete {
+                resetCalc()
+            }
+            
+            if startNewInput {
+                currentValue = 0
+                decimalButtonActive = false
+                startNewInput = false
+            }
+            
+            if decimalButtonActive {
+                currentValue = currentValue + (number / (decimalMultiplier * 10))
+                decimalMultiplier *= 10
+            } else {
+                currentValue = (currentValue * 10) + number
+            }
+            
+            displayValue = currentValue
         }
-        
-        if startNewInput {
-            currentValue = 0
-            startNewInput = false
-        }
-        
-        currentValue = (currentValue * 10) + input
-        displayValue = currentValue
         
     }
     
     mutating func decimalPressed() {
-        
+        decimalButtonActive = true
     }
     
     //MARK: - UTILITY FUNCTIONS
@@ -106,5 +118,7 @@ struct CalculatorEngine {
         operandSide = .leftHandSide
         startNewInput = true
         isComplete = false
+        decimalButtonActive = false
+        decimalMultiplier = 1
     }
 }

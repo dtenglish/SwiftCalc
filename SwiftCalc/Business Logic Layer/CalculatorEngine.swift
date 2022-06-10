@@ -33,6 +33,7 @@ struct CalculatorEngine {
         displayValue.negate()
         currentValue = displayValue
         startNewInput = true
+        decimalButtonActive = false
         if operandSide == .rightHandSide {
             activeOperation = true
         }
@@ -41,7 +42,7 @@ struct CalculatorEngine {
     mutating func percentagePressed() {
         displayValue = displayValue * 0.01
         currentValue = displayValue
-        startNewInput = true
+        decimalButtonActive = false
         if operandSide == .rightHandSide {
             activeOperation = true
         }
@@ -83,6 +84,7 @@ struct CalculatorEngine {
         }
         
         startNewInput = true
+        decimalButtonActive = false
         
     }
     

@@ -48,11 +48,13 @@ final class CalculatorViewModel: ObservableObject {
     
     func formatDisplayValue() {
         let decimalSpaces = String(describing: calculatorEngine.decimalSpaces)
-        let displayValue = Double(truncating: calculatorEngine.displayValue as NSNumber)
-        print(decimalSpaces)
-        print(displayValue)
+        let displayValueDouble = Double(truncating: calculatorEngine.displayValue as NSNumber)
         
-        displayValueString = String(format: "%.0\(decimalSpaces)f", displayValue)
+        if calculatorEngine.decimalButtonActive {
+            displayValueString = String(format: "%.0\(decimalSpaces)f", displayValueDouble)
+        } else {
+            displayValueString = String(describing: calculatorEngine.displayValue)
+        }
         
         if calculatorEngine.decimalButtonActive && calculatorEngine.decimalSpaces == 0 {
             displayValueString.append(".")

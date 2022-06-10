@@ -51,6 +51,10 @@ struct CalculatorEngine {
         
         isComplete = false
         
+        if operandSide == .rightHandSide && startNewInput == false {
+            mathEquation.execute()
+        }
+        
         switch input {
         case CalcGridButton.ButtonLabel.add: mathEquation.operation = .add
         case CalcGridButton.ButtonLabel.subtract: mathEquation.operation = .subtract

@@ -16,11 +16,16 @@ struct CalculatorView: View {
         ZStack {
             VStack {
                 Spacer()
-                CalcDisplayView(displayValueString: $viewModel.displayValueString)
+                CalcDisplayView(viewModel: viewModel)
+                    .onTapGesture {
+                        viewModel.changeTheme()
+                    }
                 CalcGridView(viewModel: viewModel)
             } //: VSTACK
         } //: ZSTACK
+        .background(viewModel.selectedTheme.backgroundColor)
     }
+        
 }
 
 struct CalculatorView_Previews: PreviewProvider {

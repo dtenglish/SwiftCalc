@@ -16,7 +16,7 @@ struct CalcGridButton {
     
     let label: ButtonLabel
     var type: ButtonType
-    var theme: CalculatorTheme
+    var theme: Theme
     
     var backgroundColor: Color {
         switch type {

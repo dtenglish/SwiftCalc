@@ -1,5 +1,5 @@
 //
-//  CalculatorTheme.swift
+//  Theme.swift
 //  SwiftCalc
 //
 //  Created by Daniel Taylor English on 6/7/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CalculatorTheme {
+struct Theme {    
     let backgroundColor: Color
     let displayColor: Color
     

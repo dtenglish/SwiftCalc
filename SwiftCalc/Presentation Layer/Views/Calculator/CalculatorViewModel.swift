@@ -12,8 +12,13 @@ final class CalculatorViewModel: ObservableObject {
     
     @Published var calculatorEngine = CalculatorEngine()
     @Published var displayValueString: String = ""
+    @Published var selectedTheme: Theme
+    
+    private let themes = CalculatorThemes().themes
+    private var selectedThemeIndex: Int = 0
     
     init() {
+        selectedTheme = themes[selectedThemeIndex]
         formatDisplayValue()
     }
     
@@ -59,5 +64,16 @@ final class CalculatorViewModel: ObservableObject {
         if calculatorEngine.decimalButtonActive && calculatorEngine.decimalSpaces == 0 {
             displayValueString.append(".")
         }
+    }
+    
+    func changeTheme() {
+        
+        if selectedThemeIndex < (themes.count - 1) {
+            selectedThemeIndex += 1
+        } else {
+            selectedThemeIndex = 0
+        }
+        
+        selectedTheme = themes[selectedThemeIndex]
     }
 }

@@ -9,29 +9,20 @@ import SwiftUI
 
 struct CalcDisplayView: View {
     //MARK: - PROPERTIES
-    @Binding var displayValueString: String
+    @ObservedObject var viewModel: CalculatorViewModel
     
     //MARK: - BODY
     var body: some View {
         VStack{
             HStack {
                 Spacer()
-                Text(displayValueString)
+                Text(viewModel.displayValueString)
                     .padding()
                     .font(.system(size: 80))
+                    .foregroundColor(viewModel.selectedTheme.displayColor)
             } //: HSTACK
             .frame(maxWidth: .infinity)
             .padding()
         } //: ZSTACK
     }
 }
-
-//struct CalcDisplayOutput {
-//    let output: Decimal
-//}
-//
-//extension CalcDisplayOutput: CustomStringConvertible {
-//    var description: String {
-//        return String(output)
-//    }
-//}

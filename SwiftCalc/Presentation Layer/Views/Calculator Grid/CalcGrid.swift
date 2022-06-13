@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CalcGrid {
     //MARK: - PROPERTIES
-    private var themes = ColorThemes()
     var buttons: [CalcGridButton]?
     
     typealias input = (label: CalcGridButton.ButtonLabel, type: CalcGridButton.ButtonType)
@@ -37,13 +36,13 @@ struct CalcGrid {
         (label: CalcGridButton.ButtonLabel.equals, type: CalcGridButton.ButtonType.operation),
     ]
     
-    init() {
-        buttons = generateButtons(inputs: inputs, theme: themes.selectedTheme)
+    init(theme: Theme) {
+        buttons = generateButtons(inputs: inputs, theme: theme)
     }
     
     //MARK: - FUNCTIONS
     
-    func generateButtons(inputs: [input], theme: CalculatorTheme) -> [CalcGridButton] {
+    func generateButtons(inputs: [input], theme: Theme) -> [CalcGridButton] {
         var buttons: [CalcGridButton] = []
         
         for input in inputs {
@@ -53,5 +52,9 @@ struct CalcGrid {
         }
         
         return buttons
+    }
+    
+    func applySelectedTheme(theme: Theme) {
+        
     }
 }

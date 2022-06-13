@@ -51,7 +51,7 @@ struct CalculatorEngine {
     
     //MARK: - OPERATIONS
     
-    mutating func operationPressed(input: CalcGridButton.ButtonLabel) {
+    mutating func operationPressed(input: ButtonLabel) {
         
         switch operandSide {
         case .leftHandSide:
@@ -67,11 +67,11 @@ struct CalculatorEngine {
         }
         
         switch input {
-        case CalcGridButton.ButtonLabel.add: mathEquation.operation = .add
-        case CalcGridButton.ButtonLabel.subtract: mathEquation.operation = .subtract
-        case CalcGridButton.ButtonLabel.multiply: mathEquation.operation = .multiply
-        case CalcGridButton.ButtonLabel.divide: mathEquation.operation = .divide
-        case CalcGridButton.ButtonLabel.equals:
+        case ButtonLabel.add: mathEquation.operation = .add
+        case ButtonLabel.subtract: mathEquation.operation = .subtract
+        case ButtonLabel.multiply: mathEquation.operation = .multiply
+        case ButtonLabel.divide: mathEquation.operation = .divide
+        case ButtonLabel.equals:
             mathEquation.execute()
             activeOperation = false
             isComplete = true
@@ -91,7 +91,7 @@ struct CalculatorEngine {
     
     //MARK: - PINPAD
     
-    mutating func numberPressed(input: CalcGridButton.ButtonLabel) {
+    mutating func numberPressed(input: ButtonLabel) {
         
         if let number = Decimal(string: input.rawValue) {
             if isComplete {

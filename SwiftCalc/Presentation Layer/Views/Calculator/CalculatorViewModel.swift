@@ -26,24 +26,24 @@ final class CalculatorViewModel: ObservableObject {
     
     func buttonPressed(_ button: CalcGridButton) {
         
-        if button.type == CalcGridButton.ButtonType.pinpad {
-            if button.label != CalcGridButton.ButtonLabel.decimal {
+        if button.type == ButtonType.pinpad {
+            if button.label != ButtonLabel.decimal {
                 calculatorEngine.numberPressed(input: button.label)
             } else  {
                 calculatorEngine.decimalPressed()
             }
             
-        } else if button.type == CalcGridButton.ButtonType.operation {
+        } else if button.type == ButtonType.operation {
             
             calculatorEngine.operationPressed(input: button.label)
             
-        } else if button.type == CalcGridButton.ButtonType.extraFunction {
+        } else if button.type == ButtonType.extraFunction {
             
-            if button.label == CalcGridButton.ButtonLabel.clear {
+            if button.label == ButtonLabel.clear {
                 calculatorEngine.clearPressed()
-            } else if button.label == CalcGridButton.ButtonLabel.negate {
+            } else if button.label == ButtonLabel.negate {
                 calculatorEngine.negatePressed()
-            } else if button.label == CalcGridButton.ButtonLabel.percentage {
+            } else if button.label == ButtonLabel.percentage {
                 calculatorEngine.percentagePressed()
             }
         }

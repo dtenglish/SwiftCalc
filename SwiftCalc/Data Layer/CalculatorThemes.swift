@@ -12,6 +12,7 @@ struct CalculatorThemes {
     let themes: [Theme]
     
     let lightTheme = Theme(
+        colorScheme: .light,
         backgroundColor: Color(.white),
         displayColor: Color(.black),
 
@@ -28,6 +29,7 @@ struct CalculatorThemes {
     )
     
     let darkTheme = Theme(
+        colorScheme: .dark,
         backgroundColor: Color(.black),
         displayColor: Color(.white),
 

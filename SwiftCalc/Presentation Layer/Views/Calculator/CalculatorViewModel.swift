@@ -75,5 +75,7 @@ final class CalculatorViewModel: ObservableObject {
         }
         
         selectedTheme = themes[selectedThemeIndex]
+        
     }
+    
 }

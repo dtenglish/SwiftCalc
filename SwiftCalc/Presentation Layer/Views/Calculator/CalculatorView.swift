@@ -24,6 +24,7 @@ struct CalculatorView: View {
             } //: VSTACK
         } //: ZSTACK
         .background(viewModel.selectedTheme.backgroundColor)
+        .preferredColorScheme(viewModel.selectedTheme.colorScheme)
     }
         
 }

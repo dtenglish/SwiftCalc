@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct Theme {    
+struct Theme {
+    
+    let colorScheme: ColorScheme
     let backgroundColor: Color
     let displayColor: Color
     
@@ -21,4 +23,5 @@ struct Theme {
     
     let pinpadColor: Color
     let pinpadTextColor: Color
+    
 }

@@ -32,8 +32,8 @@ struct CalcGridView: View {
                                     height: (availableWidth / 4 - 10),
                                     action: {viewModel.buttonPressed(buttons[i])}
                                 )
-                        } //: VGRID
-                    }
+                        }
+                    } //: VGRID
                 }
             }
         } //: VSTACK

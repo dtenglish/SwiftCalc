@@ -15,14 +15,16 @@ struct CalcDisplayView: View {
     var body: some View {
         VStack{
             HStack {
-                Spacer()
                 Text(viewModel.displayValueString)
-                    .padding()
-                    .font(.system(size: 80))
+                    .padding(.horizontal)
+                    .frame(maxWidth: .infinity, maxHeight: 90, alignment: .trailing)
+                    .font(.system(size: 90))
+                    .minimumScaleFactor(0.5)
+                    .allowsTightening(true)
+                    .lineLimit(1)
                     .foregroundColor(viewModel.selectedTheme.displayColor)
             } //: HSTACK
-            .frame(maxWidth: .infinity)
-            .padding()
-        } //: ZSTACK
+            .padding(.horizontal)
+        } //: VSTACK
     }
 }

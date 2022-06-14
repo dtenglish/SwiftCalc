@@ -26,7 +26,6 @@ struct CalculatorView: View {
         .background(viewModel.selectedTheme.backgroundColor)
         .preferredColorScheme(viewModel.selectedTheme.colorScheme)
     }
-        
 }
 
 struct CalculatorView_Previews: PreviewProvider {

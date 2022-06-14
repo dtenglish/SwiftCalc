@@ -24,12 +24,12 @@ struct CalcGridView: View {
         VStack {
             if let grid = CalcGrid(theme: viewModel.selectedTheme) {
                 if let buttons = grid.buttons {
-                    LazyVGrid(columns: columns, alignment: .leading, spacing: 5) {
+                    LazyVGrid(columns: columns, alignment: .leading, spacing: 8) {
                         ForEach(0..<20) { i in
                                 CalcGridButtonView(
                                     button: buttons[i],
-                                    width: i == 16 ? (availableWidth / 2 - 15) : (availableWidth / 4 - 10),
-                                    height: (availableWidth / 4 - 10),
+                                    width: i == 16 ? (availableWidth / 2 - 24) : (availableWidth / 4 - 16),
+                                    height: (availableWidth / 4 - 16),
                                     action: {viewModel.buttonPressed(buttons[i])}
                                 )
                         }
@@ -38,6 +38,7 @@ struct CalcGridView: View {
             }
         } //: VSTACK
         .padding(.horizontal)
+        .padding(.bottom, 10)
         .readSize { size in
           availableWidth = size.width
         }

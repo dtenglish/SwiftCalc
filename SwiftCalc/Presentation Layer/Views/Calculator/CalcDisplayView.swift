@@ -21,7 +21,6 @@ struct CalcDisplayView: View {
                     .font(.system(size: 90))
                     .minimumScaleFactor(0.5)
                     .allowsTightening(true)
-                    .lineLimit(1)
                     .foregroundColor(viewModel.selectedTheme.displayColor)
             } //: HSTACK
             .padding(.horizontal)

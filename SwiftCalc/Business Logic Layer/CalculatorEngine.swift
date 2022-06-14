@@ -34,8 +34,9 @@ struct CalculatorEngine {
         currentValue = displayValue
         startNewInput = true
         decimalButtonActive = false
-        if operandSide == .rightHandSide {
-            activeOperation = true
+
+        if isComplete == true {
+            mathEquation.lhs = currentValue
         }
     }
     
@@ -44,8 +45,9 @@ struct CalculatorEngine {
         currentValue = displayValue
         startNewInput = true
         decimalButtonActive = false
-        if operandSide == .rightHandSide {
-            activeOperation = true
+
+        if isComplete == true {
+            mathEquation.lhs = currentValue
         }
     }
     
@@ -60,10 +62,13 @@ struct CalculatorEngine {
             activeOperation = true
         case .rightHandSide:
             mathEquation.rhs = currentValue
+            isComplete = false
+            
             if activeOperation {
                 mathEquation.execute()
                 activeOperation = false
             }
+            
         }
         
         switch input {
@@ -81,7 +86,8 @@ struct CalculatorEngine {
         
         if let result = mathEquation.result {
             displayValue = result
-            mathEquation.lhs = result
+            
+            mathEquation = MathEquation(lhs: result, operation: mathEquation.operation)
         }
         
         startNewInput = true
@@ -115,6 +121,10 @@ struct CalculatorEngine {
             }
             
             displayValue = currentValue
+            
+            if operandSide == .rightHandSide && activeOperation == false {
+                activeOperation = true
+            }
         }
         
     }
@@ -128,6 +138,7 @@ struct CalculatorEngine {
             decimalMultiplier = 1
             startNewInput = false
         }
+        
         displayValue = currentValue
     }
     

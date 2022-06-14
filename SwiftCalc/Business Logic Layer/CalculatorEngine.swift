@@ -19,7 +19,7 @@ struct CalculatorEngine {
     private var isComplete = false
     private var decimalMultiplier: Decimal = 1
     var decimalButtonActive = false
-    var decimalSpaces: Decimal = 0
+    var decimalSpaces: Int = 0
     var currentValue: Decimal = 0
     var displayValue: Decimal = 0
     

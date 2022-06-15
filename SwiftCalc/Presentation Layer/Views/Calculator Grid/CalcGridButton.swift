@@ -29,7 +29,7 @@ struct CalcGridButton {
     var backgroundColor: Color {
         switch type {
         case .blank:
-            return Color(.white).opacity(0)
+            return Color(.clear)
         case .extraFunction:
             return theme.extraFunctionColor
         case .pinpad:
@@ -46,7 +46,7 @@ struct CalcGridButton {
     var textColor: Color {
         switch type {
         case .blank:
-            return Color(.white).opacity(0)
+            return Color(.clear)
         case .extraFunction:
             return theme.extraFunctionTextColor
         case .pinpad:

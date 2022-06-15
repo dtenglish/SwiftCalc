@@ -17,7 +17,7 @@ struct CalculatorView: View {
             VStack {
                 Spacer()
                 CalcDisplayView(viewModel: viewModel)
-                    .onTapGesture {
+                    .onTapGesture(count: 2) {
                         viewModel.changeTheme()
                     }
                 CalcGridView(viewModel: viewModel)

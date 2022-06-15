@@ -16,6 +16,7 @@ final class CalculatorViewModel: ObservableObject {
     
     private let themes = CalculatorThemes().themes
     private var selectedThemeIndex: Int = 0
+    private(set) var selectedOperation: ButtonLabel?
     
     init() {
         selectedTheme = themes[selectedThemeIndex]
@@ -35,12 +36,21 @@ final class CalculatorViewModel: ObservableObject {
             
         } else if button.type == ButtonType.operation {
             
+            if selectedOperation != nil {
+                selectedOperation = nil
+            }
+            
             calculatorEngine.operationPressed(input: button.label)
+            
+            if button.label != ButtonLabel.equals {
+                selectedOperation = button.label
+            }
             
         } else if button.type == ButtonType.extraFunction {
             
             if button.label == ButtonLabel.clear {
                 calculatorEngine.clearPressed()
+                selectedOperation = nil
             } else if button.label == ButtonLabel.negate {
                 calculatorEngine.negatePressed()
             } else if button.label == ButtonLabel.percentage {

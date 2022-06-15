@@ -22,7 +22,7 @@ struct CalcGridView: View {
     //MARK: - BODY
     var body: some View {
         VStack {
-            if let grid = CalcGrid(theme: viewModel.selectedTheme) {
+            if let grid = CalcGrid(viewModel: viewModel) {
                 if let buttons = grid.buttons {
                     LazyVGrid(columns: columns, alignment: .leading, spacing: 8) {
                         ForEach(0..<20) { i in

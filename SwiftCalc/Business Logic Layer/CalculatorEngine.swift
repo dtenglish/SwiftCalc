@@ -59,7 +59,6 @@ struct CalculatorEngine {
         case .leftHandSide:
             mathEquation.lhs = currentValue
             operandSide = .rightHandSide
-            activeOperation = true
         case .rightHandSide:
             mathEquation.rhs = currentValue
             isComplete = false
@@ -88,6 +87,8 @@ struct CalculatorEngine {
             displayValue = result
             
             mathEquation = MathEquation(lhs: result, operation: mathEquation.operation)
+            
+            activeOperation = false
         }
         
         startNewInput = true

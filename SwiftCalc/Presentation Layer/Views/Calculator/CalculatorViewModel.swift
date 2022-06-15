@@ -28,6 +28,11 @@ final class CalculatorViewModel: ObservableObject {
     func buttonPressed(_ button: CalcGridButton) {
         
         if button.type == ButtonType.pinpad {
+            
+            if selectedOperation != nil {
+                selectedOperation = nil
+            }
+            
             if button.label != ButtonLabel.decimal {
                 calculatorEngine.numberPressed(input: button.label)
             } else  {

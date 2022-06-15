@@ -22,10 +22,15 @@ struct CalcGridButtonView: View {
             Capsule()
                 .foregroundColor(button.backgroundColor.opacity(isTapped ? 0 : 1))
                 .frame(width: width, height: height)
-            Text(button.label.rawValue)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .foregroundColor(button.textColor)
+            ZStack{
+                if button.type == ButtonType.pinpad || button.label == ButtonLabel.clear {
+                    Text(button.label.rawValue)
+                } else {
+                    Image(systemName: button.label.rawValue)
+                }
+            } //: ZSTACK
+            .font(.system(size: 30, weight: .semibold))
+            .foregroundColor(button.textColor)
         }
         .scaleEffect(isTapped ? 1.1 : 1)
         .onTapGesture {

@@ -17,10 +17,11 @@ struct CalcDisplayView: View {
             HStack {
                 Text(viewModel.displayValueString)
                     .padding(.horizontal)
-                    .frame(maxWidth: .infinity, maxHeight: 90, alignment: .trailing)
-                    .font(.system(size: 90))
-                    .minimumScaleFactor(0.5)
+                    .frame(maxWidth: .infinity, maxHeight: 120, alignment: .trailing)
+                    .font(.system(size: 100))
+                    .minimumScaleFactor(0.4)
                     .allowsTightening(true)
+                    .lineLimit(1)
                     .foregroundColor(viewModel.selectedTheme.displayColor)
             } //: HSTACK
             .padding(.horizontal)

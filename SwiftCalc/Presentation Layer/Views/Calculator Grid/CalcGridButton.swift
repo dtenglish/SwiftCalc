@@ -12,7 +12,7 @@ import SwiftUI
 enum ButtonType { case extraFunction, operation, pinpad, blank }
 
 enum ButtonLabel: String {
-    case clear = "AC", negate = "plus.forwardslash.minus", percentage = "percent", divide = "divide", seven = "7", eight = "8", nine = "9", multiply = "multiply", four = "4", five = "5", six = "6", subtract = "minus", one = "1", two = "2", three = "3", add = "plus", zero = "0", blank = "nil", decimal = ".", equals = "equal"
+    case clear = "AC", negate = "plus.forwardslash.minus", percentage = "percent", divide = "divide", seven = "7", eight = "8", nine = "9", multiply = "multiply", four = "4", five = "5", six = "6", subtract = "minus", one = "1", two = "2", three = "3", add = "plus", zero = "0", blank = "clear", decimal = ".", equals = "equal"
 }
 
 //MARK: - STRUCT

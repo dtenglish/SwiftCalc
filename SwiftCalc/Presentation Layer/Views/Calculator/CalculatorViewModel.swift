@@ -91,9 +91,10 @@ final class CalculatorViewModel: ObservableObject {
         let value = UIPasteboard.general.string ?? "0"
         let result = Decimal(string: value) ?? 0
         
-        displayValueString = value
         calculatorEngine.currentValue = result
         calculatorEngine.displayValue = result
+        
+        formatDisplayValue()
         
     }
     

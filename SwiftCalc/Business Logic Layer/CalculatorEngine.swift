@@ -157,4 +157,10 @@ struct CalculatorEngine {
         decimalMultiplier = 1
         decimalSpaces = 0
     }
+    
+    mutating func inputValue(value: Decimal) {
+        currentValue = value
+        displayValue = value
+        startNewInput = true
+    }
 }

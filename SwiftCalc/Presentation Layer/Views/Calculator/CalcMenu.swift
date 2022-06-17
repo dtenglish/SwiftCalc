@@ -13,17 +13,15 @@ struct CalcMenu: View {
     
     //MARK: - BODY
     var body: some View {
-        VStack {
-            Button {
-                viewModel.copyDisplayValue()
-            } label: {
-                Text("Copy")
-            }
-            Button {
-                viewModel.pasteValue()
-            } label: {
-                Text("Paste")
-            }
-        } //: VSTACK
+        Button {
+            viewModel.copyDisplayValue()
+        } label: {
+            Text("Copy")
+        }
+        Button {
+            viewModel.pasteValue()
+        } label: {
+            Text("Paste")
+        }
     }
 }

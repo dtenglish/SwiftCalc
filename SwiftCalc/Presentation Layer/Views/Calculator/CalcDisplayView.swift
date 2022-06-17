@@ -26,5 +26,8 @@ struct CalcDisplayView: View {
             } //: HSTACK
             .padding(.horizontal)
         } //: VSTACK
+        .contextMenu {
+            CalcMenu(viewModel: viewModel)
+        }
     }
 }

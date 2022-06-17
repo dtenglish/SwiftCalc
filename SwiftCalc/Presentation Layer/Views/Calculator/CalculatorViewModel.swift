@@ -78,6 +78,18 @@ final class CalculatorViewModel: ObservableObject {
         }
     }
     
+    func copyDisplayValue() {
+        
+        UIPasteboard.general.setValue(displayValueString, forPasteboardType: "public.plain-text")
+        
+    }
+    
+    func pasteValue() {
+        
+//        UIPasteboard.general.string
+        
+    }
+    
     func changeTheme() {
         
         if selectedThemeIndex < (themes.count - 1) {

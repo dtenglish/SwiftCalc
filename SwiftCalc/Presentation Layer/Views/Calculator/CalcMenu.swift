@@ -20,7 +20,7 @@ struct CalcMenu: View {
                 Text("Copy")
             }
             Button {
-                // Paste
+                viewModel.pasteValue()
             } label: {
                 Text("Paste")
             }

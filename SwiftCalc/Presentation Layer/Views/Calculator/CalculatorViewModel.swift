@@ -61,6 +61,7 @@ final class CalculatorViewModel: ObservableObject {
             } else if button.label == ButtonLabel.percentage {
                 calculatorEngine.percentagePressed()
             }
+            
         }
         
         formatDisplayValue()
@@ -76,6 +77,7 @@ final class CalculatorViewModel: ObservableObject {
         if calculatorEngine.decimalButtonActive && calculatorEngine.decimalSpaces == 0 {
             displayValueString.append(".")
         }
+        
     }
     
     func copyDisplayValue() {
@@ -86,7 +88,12 @@ final class CalculatorViewModel: ObservableObject {
     
     func pasteValue() {
         
-//        UIPasteboard.general.string
+        let value = UIPasteboard.general.string ?? "0"
+        let result = Decimal(string: value) ?? 0
+        
+        displayValueString = value
+        calculatorEngine.currentValue = result
+        calculatorEngine.displayValue = result
         
     }
     

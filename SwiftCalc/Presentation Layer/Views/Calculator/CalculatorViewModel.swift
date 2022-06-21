@@ -83,7 +83,11 @@ final class CalculatorViewModel: ObservableObject {
 
         let formattedString = formatter.string(from: calculatorEngine.displayValue as NSNumber) ?? "0"
         
-        displayValueString = formattedString
+        if formattedString == "NaN" {
+            displayValueString = "Error"
+        } else {
+            displayValueString = formattedString
+        }
         
         if calculatorEngine.decimalButtonActive && calculatorEngine.decimalSpaces == 0 {
             displayValueString.append(".")

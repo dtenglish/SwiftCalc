@@ -101,6 +101,7 @@ struct CalculatorEngine {
     mutating func numberPressed(input: ButtonLabel) {
         
         if let number = Decimal(string: input.rawValue) {
+            
             if isComplete {
                 resetCalc()
             }
@@ -113,12 +114,14 @@ struct CalculatorEngine {
                 startNewInput = false
             }
             
-            if decimalButtonActive {
-                currentValue = currentValue + (number / (decimalMultiplier * 10))
-                decimalMultiplier *= 10
-                decimalSpaces += 1
-            } else {
-                currentValue = (currentValue * 10) + number
+            if currentValue.description.count < 9 {
+                if decimalButtonActive {
+                    currentValue = currentValue + (number / (decimalMultiplier * 10))
+                    decimalMultiplier *= 10
+                    decimalSpaces += 1
+                } else {
+                    currentValue = (currentValue * 10) + number
+                }
             }
             
             displayValue = currentValue

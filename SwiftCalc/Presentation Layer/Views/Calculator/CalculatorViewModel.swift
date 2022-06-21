@@ -17,6 +17,7 @@ final class CalculatorViewModel: ObservableObject {
     private let themes = CalculatorThemes().themes
     private var selectedThemeIndex: Int = 0
     private(set) var selectedOperation: ButtonLabel?
+    private var displayScientificNotation = false
     
     init() {
         selectedTheme = themes[selectedThemeIndex]
@@ -70,9 +71,19 @@ final class CalculatorViewModel: ObservableObject {
     func formatDisplayValue() {
         
         let formatter = NumberFormatter()
-        formatter.numberStyle = NumberFormatter.Style.decimal
+        
+        if calculatorEngine.displayValue.description.count > 9 {
+            displayScientificNotation = true
+        } else {
+            displayScientificNotation = false
+        }
+        
+        formatter.numberStyle = displayScientificNotation ? NumberFormatter.Style.scientific : NumberFormatter.Style.decimal
+        formatter.maximumFractionDigits = displayScientificNotation ? 5 : 10
 
-        displayValueString = formatter.string(from: calculatorEngine.displayValue as NSNumber) ?? "0"
+        let formattedString = formatter.string(from: calculatorEngine.displayValue as NSNumber) ?? "0"
+        
+        displayValueString = formattedString
         
         if calculatorEngine.decimalButtonActive && calculatorEngine.decimalSpaces == 0 {
             displayValueString.append(".")

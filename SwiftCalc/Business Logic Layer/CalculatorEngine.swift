@@ -31,23 +31,25 @@ struct CalculatorEngine {
     
     mutating func negatePressed() {
         displayValue.negate()
-        currentValue = displayValue
         startNewInput = true
         decimalButtonActive = false
 
-        if isComplete == true {
-            mathEquation.lhs = currentValue
+        if operandSide == OperandSide.rightHandSide {
+            mathEquation.lhs = displayValue
+        } else if operandSide == OperandSide.leftHandSide {
+            currentValue = displayValue
         }
     }
     
     mutating func percentagePressed() {
         displayValue = displayValue * 0.01
-        currentValue = displayValue
         startNewInput = true
         decimalButtonActive = false
-
-        if isComplete == true {
-            mathEquation.lhs = currentValue
+        
+        if operandSide == OperandSide.rightHandSide {
+            mathEquation.lhs = displayValue
+        } else if operandSide == OperandSide.leftHandSide {
+            currentValue = displayValue
         }
     }
     

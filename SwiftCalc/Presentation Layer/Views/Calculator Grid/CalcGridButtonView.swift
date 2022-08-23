@@ -23,7 +23,7 @@ struct CalcGridButtonView: View {
                 .foregroundColor(button.backgroundColor.opacity(isTapped ? 0 : 1))
                 .frame(width: width, height: height)
             ZStack{
-                if button.type == ButtonType.pinpad || button.label == ButtonLabel.clear {
+                if button.type == ButtonType.pinpad || button.label == ButtonLabel.clear || button.label == ButtonLabel.allClear {
                     Text(button.label.rawValue)
                 } else {
                     Image(systemName: button.label.rawValue)

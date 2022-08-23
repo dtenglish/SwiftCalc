@@ -37,17 +37,23 @@ struct CalcGrid {
     ]
     
     init(viewModel: CalculatorViewModel) {
-        buttons = generateButtons(inputs: inputs, theme: viewModel.selectedTheme, selectedOperation: viewModel.selectedOperation)
+        buttons = generateButtons(inputs: inputs, theme: viewModel.selectedTheme, selectedOperation: viewModel.selectedOperation, clearState: viewModel.calculatorEngine.clearButtonState)
     }
     
     //MARK: - FUNCTIONS
     
-    func generateButtons(inputs: [input], theme: Theme, selectedOperation: ButtonLabel?) -> [CalcGridButton] {
+    func generateButtons(inputs: [input], theme: Theme, selectedOperation: ButtonLabel?, clearState: ClearButtonState) -> [CalcGridButton] {
         var buttons: [CalcGridButton] = []
+        var buttonLabel: ButtonLabel
         
         for input in inputs {
+            if input.label == ButtonLabel.clear && clearState == ClearButtonState.clearAll {
+                buttonLabel = ButtonLabel.allClear
+            } else {
+                buttonLabel = input.label
+            }
             buttons.append(
-                CalcGridButton(label: input.label, type: input.type, theme: theme, isSelected: selectedOperation == input.label ? true : false)
+                CalcGridButton(label:  buttonLabel, type: input.type, theme: theme, isSelected: selectedOperation == input.label ? true : false)
             )
         }
         

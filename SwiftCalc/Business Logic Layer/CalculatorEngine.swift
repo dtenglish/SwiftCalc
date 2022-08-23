@@ -7,6 +7,8 @@
 
 import Foundation
 
+enum ClearButtonState { case clearCurrent, clearAll }
+
 struct CalculatorEngine {
     //MARK: - PROPERTIES
     
@@ -18,6 +20,7 @@ struct CalculatorEngine {
     private var startNewInput = true
     private var isComplete = false
     private var decimalMultiplier: Decimal = 1
+    private(set) var clearButtonState = ClearButtonState.clearAll
     private(set) var decimalButtonActive = false
     private(set) var decimalSpaces: Int = 0
     var currentValue: Decimal = 0
@@ -26,7 +29,12 @@ struct CalculatorEngine {
     //MARK: - EXTRA FUNCTIONS
     
     mutating func clearPressed() {
-        resetCalc()
+        if clearButtonState == ClearButtonState.clearAll {
+            resetCalc()
+        } else if clearButtonState == ClearButtonState.clearCurrent {
+            clearCurrentValue()
+            clearButtonState = ClearButtonState.clearAll
+        }
     }
     
     mutating func negatePressed() {
@@ -108,6 +116,10 @@ struct CalculatorEngine {
                 resetCalc()
             }
             
+            if clearButtonState == ClearButtonState.clearAll {
+                clearButtonState = ClearButtonState.clearCurrent
+            }
+            
             if startNewInput {
                 currentValue = 0
                 decimalButtonActive = false
@@ -149,6 +161,15 @@ struct CalculatorEngine {
     }
     
     //MARK: - UTILITY FUNCTIONS
+    
+    mutating func clearCurrentValue() {
+        currentValue = 0
+        displayValue = 0
+        startNewInput = true
+        decimalButtonActive = false
+        decimalMultiplier = 1
+        decimalSpaces = 0
+    }
     
     mutating func resetCalc() {
         mathEquation = MathEquation(lhs: 0)

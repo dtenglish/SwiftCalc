@@ -54,7 +54,7 @@ final class CalculatorViewModel: ObservableObject {
             
         } else if button.type == ButtonType.extraFunction {
             
-            if button.label == ButtonLabel.clear {
+            if button.label == ButtonLabel.clear || button.label == ButtonLabel.allClear {
                 calculatorEngine.clearPressed()
                 selectedOperation = nil
             } else if button.label == ButtonLabel.negate {
